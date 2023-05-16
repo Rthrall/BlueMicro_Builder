@@ -16,21 +16,21 @@ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR C
 LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-*/
 #include <stdint.h>
 #include "hid_keycodes.h"
+#include "hardware_variants.h"
 #include "keyboard_config.h"
 #include "advanced_keycodes.h"
 #include "Key.h"
 #include <array>
+#include "BlueMicro_display.h"
+
 #ifndef KEYMAP_H
 #define KEYMAP_H
 
-#define KC_CAP_D MOD(MOD_LSHIFT, KC_D)
-#define NUM_LAYERS 2
-
-#define _QWERTY 0
+#define _L0  0
 #define _L1  1
+
 
 void setupKeymap();
 extern std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix;
