@@ -41,17 +41,5 @@ uint32_t layer1[MATRIX_ROWS][MATRIX_COLS] =
   KC_NO,         KC_NO,   KC_NO,   KC_NO   \
 );
 
-    for (int row = 0; row < MATRIX_ROWS; ++row)
-    {
-        for (int col = 0; col < MATRIX_COLS; ++col)
-        {
-            matrix[row][col].addActivation(_L1, Method::PRESS, layer1[row][col]);
-            matrix[row][col].addActivation(_L2, Method::PRESS, layer2[row][col]);
-            matrix[row][col].addActivation(_L3, Method::PRESS, layer3[row][col]);
-        }
-    }
-
-    // if you want to add Tap/Hold or Tap/Doubletap activations, then you add them below.
-
 }
 #endif
