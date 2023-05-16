@@ -30,7 +30,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #define _L1  1
 
 void setupKeymap();
-extern std::array<std::array<Key, 4>, 5> matrix;
+extern std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix;
 
 
 
