@@ -16,23 +16,20 @@ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR C
 LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+*/
 #ifndef KEYBOARD_CONFIG_H
 #define KEYBOARD_CONFIG_H
 #include "hardware_config.h"
+#define KEYBOARD_SIDE SINGLE
 
 
+#define DEVICE_NAME_R                       "RaidhoPad_R"                          /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME_L                       "RaidhoPad_L"                          /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME_M                       "Raidhopad"                          /**< Name of device. Will be included in the advertising data. */
 
+#define DEVICE_MODEL                        "RaidhoPad_v1"                          /**< Name of device. Will be included in the advertising data. */
 
-#define KEYBOARD_SIDE SINGLE 
-
-// CHANGE THIS FOR THE KEYBOARD TO MATCH WHAT IS BEING FLASHED. OPTIONS: LEFT  RIGHT  SINGLE
-/**> #define DEVICE_NAME_R                    "4x4Backpack_R"                         /**< N>
-#define DEVICE_NAME_L                         "4x4Backpack_L"                         /**< N>
-#define DEVICE_NAME_M                         "RaidhoPad"                             /**< N>
-
-#define DEVICE_MODEL                        "RaidhoPad_V1"                          /**< Nam>
-
-#define MANUFACTURER_NAME                   "keyboards.subraidho.com"         /**< Manufactu>
+#define MANUFACTURER_NAME                   "Subraidho.com"                      /**< Manufacturer. Will be passed to Device Information Service. */
 
 #define KEYMAP( \
     K00, K01, K02, K03,  \
