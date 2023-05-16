@@ -17,17 +17,27 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 */
 #include "keymap.h"
 
+// Initialize matrix with nothing...
 std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
-    {{
-        {KC_7,    KC_8,    KC_9,    KC_KP_SLASH,},
-        {KC_4,    KC_5,    KC_6,    KC_KP_ASTERISK,},
-        {KC_1,    KC_2,    KC_3,    KC_KP_MINUS,},
-        {KC_0,    KC_0,    KC_DOT,  KC_KP_PLUS}
-    }};
+    KEYMAP2ARRAY(KEYMAP(
+        TG(layer1),    KC_KP_SLASH,    KC_KP_ASTERISK,     KC_KP_MINUS,    
+        KC_KP_7,       KC_KP_8,        KC_KP_9,            KC_KP_PLUS,
+        KC_KP_4,       KC_KP_5,        KC_KP_6,            KC_NO,  
+        KC_KP_4,       KC_KP_5,        KC_KP_6,            KC_NO,
+        KC_DOT,        KC_KP_0,        KC_COLN,            KC_KP_ENTER
+    ));
 
- 
+
 void setupKeymap() {
-;
+    uint32_t layer1[MATRIX_ROWS][MATRIX_COLS] = KEYMAP(
+        PRINT_BATTERY,    RESET,    KC_NO,    KC_NO, 
+        KC_NO,    KC_NO,    KC_NO,    KC_NO,
+        KC_NO,    KC_NO,    KC_NO,    KC_NO,   
+        KC_NO,    KC_NO,    KC_NO,    KC_NO,    
+        KC_NO,    KC_NO,    KC_NO,    KC_NO );
+    ADDLAYER(_L1, Method::PRESS , layer1);
 
+    #ifdef BLUEMICRO_CONFIGURED_DISPLAY
+    OLED.setStatusDisplayCallback(updateDisplay);
+    #endif
 }
-
