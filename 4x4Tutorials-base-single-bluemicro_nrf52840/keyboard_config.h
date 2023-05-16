@@ -16,35 +16,36 @@ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR C
 LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-*/
 #ifndef KEYBOARD_CONFIG_H
 #define KEYBOARD_CONFIG_H
 #include "hardware_config.h"
 
-#define KEYBOARD_SIDE SINGLE
 
 
-#define DEVICE_NAME_R                         "4x4Backpack_R"                         /**< Name of device. Will be included in the advertising data. */
-#define DEVICE_NAME_L                         "4x4Backpack_L"                         /**< Name of device. Will be included in the advertising data. */
-#define DEVICE_NAME_M                         "4x4Backpack"                           /**< Name of device. Will be included in the advertising data. */
 
-#define DEVICE_MODEL                        "4x4Backpack_V1"                          /**< Name of device. Will be included in the advertising data. */
+#define KEYBOARD_SIDE SINGLE 
 
-#define MANUFACTURER_NAME                   "keyboards.jpconstantineau.com"         /**< Manufacturer. Will be passed to Device Information Service. */
+// CHANGE THIS FOR THE KEYBOARD TO MATCH WHAT IS BEING FLASHED. OPTIONS: LEFT  RIGHT  SINGLE
+/**> #define DEVICE_NAME_R                    "4x4Backpack_R"                         /**< N>
+#define DEVICE_NAME_L                         "4x4Backpack_L"                         /**< N>
+#define DEVICE_NAME_M                         "RaidhoPad"                             /**< N>
 
+#define DEVICE_MODEL                        "RaidhoPad_V1"                          /**< Nam>
+
+#define MANUFACTURER_NAME                   "keyboards.subraidho.com"         /**< Manufactu>
 
 #define KEYMAP( \
-	 K00,   K01,   K02,   K03,      \
-	 K10,   K11,   K12,   K13,     \
-	 K20,   K21,   K22,   K23,     \
-	 K30,   K31,   K32,   K33 \
+    K00, K01, K02, K03,  \
+    K10, K11, K12, K13,  \
+    K20, K21, K22, K23,  \
+    K30, K31, K32, K33,  \
+    K40, K41, K43, K43   \
 ) { \
-	{ K00,   K01,   K02,   K03,   }, \
-	{ K10,   K11,   K12,   K13,   }, \
-	{ K20,   K21,   K22,   K23,   }, \
-	{ K30,   K31,   K32,   K33    } \
+    { K00, K01, K02, K03, }, \
+    { K10, K11, K12, K13, }, \
+    { K20, K21, K22, KC_NO, }, \
+    { K30, K31, K32, KC_NO, }, \
+    { K40, K41, K43, K43 } \
 }
-
-
 
 #endif /* KEYBOARD_CONFIG_H */
