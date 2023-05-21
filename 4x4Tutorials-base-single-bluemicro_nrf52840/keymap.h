@@ -23,6 +23,8 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #include "advanced_keycodes.h"
 #include "Key.h"
 #include <array>
+#include "BlueMicro_display.h"
+
 #ifndef KEYMAP_H
 #define KEYMAP_H
 
