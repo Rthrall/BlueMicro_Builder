@@ -51,7 +51,9 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 #define BACKLIGHT_PWM_ON 1
 #define DEFAULT_PWM_VALUE 10000  // Reduce max PWM to 10000 out of 63351 (0x7FFF)
 
-#define I2C_SDA_PIN 17
-#define I2C_SCK_PIN 20
+#define I2C_SDA_PIN 17 // Serial Data Line aka MOSI
+#define I2C_SCK_PIN 20 // SCK is SCL 
+#define I2C_CS_PIN 06  // 
+#define DISPLAY_U8G2_CONSTRUCTOR U8G2_SSD1306_160x68_NONAME_F_3W_SW_SPI(U8G2_R1, 20, 17, 06 [, 13]) [full framebuffer, size = 512 bytes]
 
 #endif /* HARDWARE_CONFIG_H */
