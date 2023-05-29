@@ -26,7 +26,7 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
         KC_KP_7,       KC_KP_8,        KC_KP_9,            KC_KP_PLUS,  
         KC_KP_4,       KC_KP_5,        KC_KP_6,            KC_NO,  
         KC_KP_1,       KC_KP_2,        KC_KP_3,            KC_NO,  
-        KC_DOT,        KC_KP_0,        KC_COLN,            KC_KP_ENTER 
+        KC_COLN,       KC_KP_0,        KC_DOT,             KC_KP_ENTER 
     )};
 
 
