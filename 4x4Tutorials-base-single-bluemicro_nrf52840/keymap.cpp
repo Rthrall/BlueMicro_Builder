@@ -34,8 +34,8 @@ void setupKeymap() {
 
 uint32_t layer1[MATRIX_ROWS][MATRIX_COLS] =
         KEYMAP( \
-  PRINT_BATTERY, RESET,   KC_NO,   KC_NO, \
-  KC_NO,         KC_NO,   KC_NO,   KC_NO,  \
+  KC_NO, RESET,   KC_NO,   KC_NO, \
+  PRINT_BATTERY, KC_NO,   KC_NO,   KC_NO,  \
   KC_NO,         KC_NO,   KC_NO,   KC_NO,    \
   KC_NO,         KC_NO,   KC_NO,   KC_NO,    \
   KC_NO,         KC_NO,   KC_NO,   KC_NO   \
