@@ -32,17 +32,18 @@ std::array<std::array<Key, MATRIX_COLS>, MATRIX_ROWS> matrix =
 
 void setupKeymap() {
 
-uint32_t layer1[MATRIX_ROWS][MATRIX_COLS] =
-        KEYMAP( \
-  KC_NO,         RESET,   KC_NO,    KC_NO, \
-  PRINT_BATTERY, KC_NO,   KC_NO,    KC_NO,  \
-  KC_NO,         KC_NO,   KC_NO,    KC_NO,    \
-  KC_NO,         KC_UP,   KC_NO,    KC_NO,    \
-  KC_LEFT,       KC_DOWN, KC_RIGHT, KC_NO   \
-);
- #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-    OLED.setStatusDisplayCallback(updateDisplay);
- #endif
+    uint32_t layer1[MATRIX_ROWS][MATRIX_COLS] =
+        KEYMAP(
+    KC_NO,            RESET,    KC_NO,    KC_NO,  \
+    PRINT_BATTERY,    KC_NO,    KC_NO,    KC_NO,  \
+    KC_Z,             KC_NO,    KC_NO,    KC_NO,  \ 
+    KC_NO,            KC_UP,    KC_NO,    KC_NO,  \
+    KC_LEFT,          KC_DOWN,  KC_RIGHT, KC_NO   \
+    );
+    ADDLAYER(_L1, Method::PRESS , layer1);
+    #ifdef BLUEMICRO_CONFIGURED_DISPLAY
+        OLED.setStatusDisplayCallback(updateDisplay);
+    #endif
 }
 
 void updateDisplay(PersistentState* cfg, DynamicState* stat)
