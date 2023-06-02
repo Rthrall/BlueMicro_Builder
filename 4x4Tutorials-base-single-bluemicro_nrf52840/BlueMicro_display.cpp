@@ -24,7 +24,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
     #ifdef U8X8_HAVE_HW_I2C
       TwoWire  Wire2(NRF_TWIM0, NRF_TWIS0, SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0_IRQn,I2C_SDA_PIN, I2C_SCK_PIN );
     #endif
-    DISPLAY_U8G2_CONSTRUCTOR U8G2(DISPLAY_U8G2_ROTATION, /* reset=*/ U8X8_PIN_NONE); 
+    DISPLAY_U8G2_CONSTRUCTOR u8g2(DISPLAY_U8G2_ROTATION, /* reset=*/ U8X8_PIN_NONE); 
 #endif
 /**************************************************************************************************************************/
 BlueMicro_Display::BlueMicro_Display(PersistentState* cfg, DynamicState* stat) {    // Constructor
@@ -65,40 +65,40 @@ void BlueMicro_Display::begin(void)
             Wire = Wire2;
         #endif
         switchVCC(true);
-        U8G2.begin();
-        U8G2.clearBuffer();
+        u8g2.begin();
+        u8g2.clearBuffer();
         _startupUpdateDisplay_cb(config,status);
-        U8G2.sendBuffer();
+        u8g2.sendBuffer();
     #endif
 }
 /**************************************************************************************************************************/
 void BlueMicro_Display::update(void)
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-        U8G2.clearBuffer();
+        u8g2.clearBuffer();
         switch(updatemode)
         {
         case DISPLAY_UPDATE_STARTUP: _startupUpdateDisplay_cb(config,status); break;  
         case DISPLAY_UPDATE_STATUS: _statusUpdateDisplay_cb(config,status); break;  
         case DISPLAY_UPDATE_DEBUG: _debugUpdateDisplay_cb(config,status); break;  
         }
-        U8G2.sendBuffer();
+        u8g2.sendBuffer();
     #endif
 }
 /**************************************************************************************************************************/
 void BlueMicro_Display::clear()
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-        U8G2.clearBuffer();					// clear the internal memory
+        u8g2.clearBuffer();					// clear the internal memory
     #endif
 }
 /**************************************************************************************************************************/
  void BlueMicro_Display::sleep(void)
  {
      #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-        U8G2.clearBuffer();
-        U8G2.sendBuffer();
-        U8G2.setPowerSave(1);
+        u8g2.clearBuffer();
+        u8g2.sendBuffer();
+        u8g2.setPowerSave(1);
      #endif
  }
 /**************************************************************************************************************************/
@@ -108,17 +108,17 @@ void battery(uint8_t x, uint8_t y,uint8_t data)
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
         char buffer [50];
-        U8G2.setFont(U8G2_font_battery19_tn);	// choose a suitable font
+        u8g2.setFont(u8g2_font_battery19_tn);	// choose a suitable font
         sprintf(buffer, "%d", (data+5)/20);
-        U8G2.drawStr(x,y,buffer);
+        u8g2.drawStr(x,y,buffer);
     #endif
 }
 
 void printline(uint8_t x, uint8_t y,char* data)
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-        U8G2.setFont(U8G2_font_u8glib_4_tf);	// choose a suitable font
-        U8G2.drawStr(x,y,data);
+        u8g2.setFont(u8g2_font_u8glib_4_tf);	// choose a suitable font
+        u8g2.drawStr(x,y,data);
     #endif
 }
 
@@ -127,8 +127,8 @@ void printline(uint8_t x, uint8_t y,int8_t data)
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
         char buffer [50];
         sprintf(buffer, "%d", data);
-        U8G2.setFont(U8G2_font_t0_12_mf);	// choose a suitable font
-        U8G2.drawStr(x,y,buffer);
+        u8g2.setFont(u8g2_font_t0_12_mf);	// choose a suitable font
+        u8g2.drawStr(x,y,buffer);
     #endif
 }
 void printline(uint8_t x, uint8_t y,uint16_t data)
@@ -136,8 +136,8 @@ void printline(uint8_t x, uint8_t y,uint16_t data)
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
         char buffer [50];
         sprintf(buffer, "%d", data);
-        U8G2.setFont(U8G2_font_t0_12_mf);	// choose a suitable font
-        U8G2.drawStr(x,y,buffer);
+        u8g2.setFont(u8g2_font_t0_12_mf);	// choose a suitable font
+        u8g2.drawStr(x,y,buffer);
     #endif
 }
 void printline(uint8_t x, uint8_t y,uint32_t data)
@@ -145,8 +145,8 @@ void printline(uint8_t x, uint8_t y,uint32_t data)
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
         char buffer [50];
         sprintf(buffer, "%u", data);
-        U8G2.setFont(U8G2_font_t0_12_mf);	// choose a suitable font
-        U8G2.drawStr(x,y,buffer);
+        u8g2.setFont(u8g2_font_t0_12_mf);	// choose a suitable font
+        u8g2.drawStr(x,y,buffer);
     #endif
 }
 
@@ -157,44 +157,44 @@ void printline(uint8_t x, uint8_t y,uint32_t data)
 void drawStartup(PersistentState* cfg, DynamicState* stat)
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-    U8G2.setFontMode(1);	// Transparent
-    U8G2.setFontDirection(1);
-    U8G2.setFont(U8G2_font_helvB12_tf);
-    U8G2.drawStr(4, 0, DEVICE_NAME);
+    u8g2.setFontMode(1);	// Transparent
+    u8g2.setFontDirection(1);
+    u8g2.setFont(u8g2_font_helvB12_tf);
+    u8g2.drawStr(4, 0, DEVICE_NAME);
     #endif
 }
 
 void drawStatus(PersistentState* cfg, DynamicState* stat)
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-    U8G2.setFontMode(1);	// Transparent
-    U8G2.setFontDirection(0);
+    u8g2.setFontMode(1);	// Transparent
+    u8g2.setFontDirection(0);
     battery(22,19,stat->vbat_per);
     printline(0,8,stat->vbat_mv);
     printline(0,18,stat->rssi_prph);
     printline(0,28,stat->peer_name_prph);
 
     char buffer [50];
-    U8G2.setFont(U8G2_font_helvB12_tf);	// choose a suitable font
+    u8g2.setFont(u8g2_font_helvB12_tf);	// choose a suitable font
     sprintf(buffer, "%d", stat->layer);
-    U8G2.drawStr(0,128,buffer);
+    u8g2.drawStr(0,128,buffer);
     #endif
 }
 
 void drawDebug(PersistentState* cfg, DynamicState* stat)
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-    U8G2.setFontMode(1);	// Transparent
-    U8G2.setFontDirection(0);
+    u8g2.setFontMode(1);	// Transparent
+    u8g2.setFontDirection(0);
     battery(22,19,stat->vbat_per);
     printline(0,8,stat->vbat_mv);
     printline(0,18,stat->rssi_prph);
     printline(0,28,stat->peer_name_prph);
 
     char buffer [50];
-    U8G2.setFont(U8G2_font_helvB12_tf);	// choose a suitable font
+    u8g2.setFont(u8g2_font_helvB12_tf);	// choose a suitable font
     sprintf(buffer, "%d", stat->layer);
-    U8G2.drawStr(0,128,buffer);
+    u8g2.drawStr(0,128,buffer);
     #endif
 }
 
