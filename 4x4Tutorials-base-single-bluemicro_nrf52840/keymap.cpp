@@ -49,24 +49,24 @@ void setupKeymap() {
 void updateDisplay(PersistentState* cfg, DynamicState* stat)
 {
     #ifdef BLUEMICRO_CONFIGURED_DISPLAY
-    u8g2.setFontMode(1);    // Transparent
-    u8g2.setFontDirection(0);
+    U8G2.setFontMode(1);    // Transparent
+    U8G2.setFontDirection(0);
     battery(22,19,stat->vbat_per);
     printline(0,28,stat->peer_name_prph);
 
     char buffer [50];
-    u8g2.setFont(u8g2_font_helvB12_tf); // choose a suitable font
+    U8G2.setFont(U8G2_font_helvB12_tf); // choose a suitable font
     switch(stat->layer)
     {
-        case _QWERTY:     u8g2.drawStr(0,128,""); break;
-        case _LOWER:      u8g2.drawStr(0,128,"L");break;
-        case _RAISE:     u8g2.drawStr(0,128,"R");break;
-        case _ADJUST:     u8g2.drawStr(0,128,"A");break;
-        case _EXTRAL:     u8g2.drawStr(0,128,"EL");break;
-        case _EXTRAR:     u8g2.drawStr(0,128,"ER");break; 
-        case _MACROL:     u8g2.drawStr(0,128,"ML");break;
-        case _MACROR:     u8g2.drawStr(0,128,"MR");break; 
-        case _MACRO:     u8g2.drawStr(0,128,"M");break;    
+        case _QWERTY:     U8G2.drawStr(0,128,""); break;
+        case _LOWER:      U8G2.drawStr(0,128,"L");break;
+        case _RAISE:     U8G2.drawStr(0,128,"R");break;
+        case _ADJUST:     U8G2.drawStr(0,128,"A");break;
+        case _EXTRAL:     U8G2.drawStr(0,128,"EL");break;
+        case _EXTRAR:     U8G2.drawStr(0,128,"ER");break; 
+        case _MACROL:     U8G2.drawStr(0,128,"ML");break;
+        case _MACROR:     U8G2.drawStr(0,128,"MR");break; 
+        case _MACRO:     U8G2.drawStr(0,128,"M");break;    
     }
     #endif
 }
