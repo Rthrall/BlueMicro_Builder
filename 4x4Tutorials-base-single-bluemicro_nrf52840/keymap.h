@@ -27,7 +27,7 @@ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR P
 
 #ifdef BLUEMICRO_CONFIGURED_DISPLAY
 extern BlueMicro_Display OLED;        // needed to assign the update display callback
-extern DISPLAY_U8G2_CONSTRUCTOR U8G2; // needed to call the display functions
+extern DISPLAY_u8g2_CONSTRUCTOR u8g2; // needed to call the display functions
 #endif
 
 void updateDisplay(PersistentState* cfg, DynamicState* stat);
